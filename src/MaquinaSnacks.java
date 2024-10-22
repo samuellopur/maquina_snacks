@@ -35,7 +35,7 @@ public class MaquinaSnacks {
                 *************************
                 Menu:
                 1. Comprar snack
-                2. Mostrar snack
+                2. Mostrar ticket
                 3. Agregar nuevo snack
                 4. Salir
                 Selecciona una opción: \s
@@ -48,6 +48,7 @@ public class MaquinaSnacks {
         var salir = false;
         switch (opcion) {
             case 1 -> comprarSnack(consola, productos);
+            case 2 -> mostrarTicket(productos);
         }
         return salir;
     }
@@ -70,5 +71,16 @@ public class MaquinaSnacks {
         if (!snackEncontrado){
             System.out.println("Id de snack no encontrado: " + idsnack);
         }
+    }
+
+    private static void mostrarTicket(List<Snack> productos){
+        var ticket = "*** Ticket de Venta ***";
+        var total = 0.0;
+        for (var producto: productos){
+            ticket += "\n\t- " + producto.getNombre() + " - $" + producto.getPrecio();
+            total += producto.getPrecio();
+        }
+        ticket += "\n\t Total -> $" + total;
+        System.out.println(ticket);
     }
 }
