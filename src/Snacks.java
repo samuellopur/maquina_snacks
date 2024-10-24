@@ -12,7 +12,7 @@ public class Snacks {
         snacks.add(new Snack("Queso", 120.0));
     }
 
-    public static void agregarElemento(Snack snack){
+    public static void agregarSnack(Snack snack){
         snacks.add(snack);
     }
 
